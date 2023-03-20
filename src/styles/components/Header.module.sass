@@ -1,0 +1,19 @@
+@use '../variables' as *
+  
+.headerWrapper
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 20px 40px
+  background-color: $color-primary
+
+  div:nth-child(n)
+    width: 100%
+    display: flex
+    justify-content: center
+
+  div:nth-child(1)
+    justify-content: flex-start
+
+  div:nth-child(3)
+    justify-content: flex-end
