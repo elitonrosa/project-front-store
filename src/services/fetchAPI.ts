@@ -5,5 +5,12 @@ const api = axios.create({
 });
 
 export const getCategories = async (): Promise<[]> => {
-  return await api.get(`/sites/MLB/categories`).then((res) => res.data);
+  return api.get(`/sites/MLB/categories`).then(({ data }) => data);
 };
+
+export const searchByQuery = async (query: (string | undefined)): Promise<[]> => {
+  if (query) {
+    return api.get(`/sites/MLB/search?q=${query.replaceAll(' ', '%')}`).then(({ data: { results } }) => results);
+  }
+  return [];
+}

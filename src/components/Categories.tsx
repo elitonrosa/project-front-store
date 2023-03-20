@@ -1,8 +1,7 @@
-import { JSXElementConstructor } from "react";
 import { useQuery } from "react-query";
-import { Link } from "react-router-dom";
 
 import { getCategories } from "../services/fetchAPI";
+
 import styles from "../styles/components/Categories.module.sass";
 
 interface CategoryProps {

@@ -1,4 +1,4 @@
-import InputSearch from "./InputSearch";
+import InputSearch from "./SearchInput";
 import { FaShoppingCart } from "react-icons/fa";
 import styles from "../styles/components/Header.module.sass";
 

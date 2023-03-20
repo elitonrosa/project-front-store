@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import Home from "./routes/Home";
+import Search from "./routes/Search";
 
 import "./styles/rootStyles.sass"
 
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
+      {
+        path: "/search/:search",
+        element: <Search />,
+      }
     ],
   },
 ]);
