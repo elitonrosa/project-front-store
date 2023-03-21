@@ -1,16 +1,20 @@
 import { Outlet } from "react-router";
-import Categories from "./components/Categories";
+import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 
 import styles from "./styles/App.module.sass";
 
 function App() {
   return (
-    <div className={ styles.appContainer }>
+    <div className={styles.appContainer}>
       <Header />
-      <div className={ styles.mainContainer }>
-        <Categories />
-        <Outlet />
+      <div className={styles.mainContainer}>
+        <div>
+          <Sidebar />
+        </div>
+        <div className={styles.mainContent}>
+          <Outlet />
+        </div>
       </div>
     </div>
   );

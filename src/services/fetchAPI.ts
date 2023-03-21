@@ -14,3 +14,10 @@ export const searchByQuery = async (query: (string | undefined)): Promise<[]> =>
   }
   return [];
 }
+
+export const getByCategory = async (categoryId: (string | undefined)): Promise<[]> => {
+  if (categoryId) {
+    return api.get(`/sites/MLB/search?category=${categoryId}`).then(({ data: { results } }) => results);
+  }
+  return [];
+}

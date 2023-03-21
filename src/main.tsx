@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
+import Categories from "./routes/Categories";
 import Home from "./routes/Home";
 import Search from "./routes/Search";
 
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/search/:search",
         element: <Search />,
+      },
+      {
+        path: "/categories/:id",
+        element: <Categories />,
       }
     ],
   },
