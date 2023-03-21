@@ -1,15 +1,11 @@
 import { useEffect } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router";
+
+import Products from "../components/Products";
 import { searchByQuery } from "../services/fetchAPI";
 
-interface ProductProps {
-  id: string;
-  title: string;
-  thumbnail: string;
-  price: number;
-  original_price: number;
-}
+import styles from "../styles/routes/Search.module.sass";
 
 function Search() {
   const { search } = useParams();
@@ -24,17 +20,17 @@ function Search() {
     refetch();
   }, [search]);
 
-  if (isLoading || isRefetching) return <h3>Carregando...</h3>;
+  if (isLoading || isRefetching)
+    return (
+      <main className={styles.loading}>
+        <h3>Carregando...</h3>
+      </main>
+    );
 
   return (
-    <main>
-      {data?.map((product: ProductProps) => (
-        <div key={product.id}>
-          <h3>{product.title}</h3>
-          <p>{product.original_price}</p>
-          <p>{product.price}</p>
-        </div>
-      ))}
+    <main className={styles.main}>
+      <h3>Exibindo resultados da busca: "{search?.replaceAll("-", " ")}"</h3>
+      <Products data={data} />
     </main>
   );
 }

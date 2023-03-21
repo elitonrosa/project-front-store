@@ -1,7 +1,24 @@
+interface ProductProps {
+  id: string;
+  title: string;
+  thumbnail: string;
+  price: number;
+  original_price: number;
+}
 
-function Products() {
+function Products({ data }: { data: ProductProps[] | undefined}) {
+  if (data?.length === 0) return <h3>Nenhum resultado encontrado</h3>;
+  
   return (
-    <div>Products</div>
+    <>
+    {data?.map((product) => (
+      <div key={product.id}>
+        <h3>{product.title}</h3>
+        <p>{product.original_price}</p>
+        <p>{product.price}</p>
+      </div>
+    ))}
+    </>
   )
 }
 
